@@ -1,0 +1,29 @@
+spring:
+  profiles:
+    active: local
+---
+spring:
+  profiles: local
+  application:
+    name: ocpexample
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/sampledb
+    username: mariadb_user
+    password: mariadb_password
+
+  server:
+    port: 8080
+---
+spring:
+  profiles: ocp
+  application:
+    name: ocpexample
+
+  datasource:
+    url: jdbc:mysql://mariadb-cheng:3306/${DB_NAME}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+
+  server:
+    port: 8080
